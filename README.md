@@ -31,14 +31,14 @@ $ cd getting-started-with-fdp/
 
 ### Install dependencies
 ```shell
-$ pnpm i
+$ npm i
 ```
 
 ### Run application
 **Requirements:** `fdp-play` must be running already! 
 
 ```shell
-$ pnpm dev
+$ npm dev
 ```
 
 The application can be viewed at - http://localhost:5173/

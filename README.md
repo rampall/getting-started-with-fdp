@@ -4,7 +4,7 @@ An interactive how-to guide to building dApps on Fair Data Protocol using `fdp-s
 
 ## Local Development Setup
 
-### Prerequisites
+### Prerequisites:
 
 **Requirements:** Docker must be already installed
 
@@ -18,7 +18,7 @@ $ npm install -g @fairdatasociety/fdp-play
 $ fdp-play start --fairos
 ```
 
-### Local setup
+### Setup & Installation:
 
 #### Clone the repo
 ```shell

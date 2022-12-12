@@ -43,12 +43,14 @@
   };
 
   const importWallet = () => {
-    $importedWallet = true;
     let phrase = prompt("Enter mnemonic phrase:");
-    $fdp.account.setAccountFromMnemonic(phrase.trim());
-    console.log({ phrase }, $fdp.account);
-    $wallet = $fdp.account.wallet as any;
-    $steps[2] = true;
+    if (phrase) {
+      $importedWallet = true;
+      $fdp.account.setAccountFromMnemonic(phrase.trim());
+      console.log({ phrase }, $fdp.account);
+      $wallet = $fdp.account.wallet as any;
+      $steps[2] = true;
+    }
   };
 
   const createWallet = () => {
@@ -120,18 +122,6 @@
       .then(async () => {
         return listTodoItems();
       });
-    // .then(async () => {
-    //   console.log('deleted ',{todo});
-    //   try {
-    //     const uploadedTodoMetadata = await $fdp.file.uploadData(
-    //       TODOS_NS,
-    //       `${TODO_ITEMS_DIR}/todo_${todo.id}.json`,
-    //       JSON.stringify({ id: todo.id, text: todo.text, done: !todo.done })
-    //     );
-    //   } catch (err) {
-    //     console.error(err);
-    //   }
-    // });
   };
   const toggleTodoItem = async (todo: Todo) => {
     console.log({ todo });
@@ -172,9 +162,8 @@
 
 <header>
   <h1>Getting started with FDP</h1>
-  <!-- <p><code class="in">fdp-storage</code> & <code class="in">fdp-play</code></p> -->
   <nav>
-    {#each ["Introduction", "Part 1", "Part 2", "Part 3"] as nav, i}
+    {#each ["Introduction", "Part 1: Building a Todo App", "Part 2: Sharing & Interoperability", "Part 3: Beyond fdp-play"] as nav, i}
       <a
         on:click={() => {
           $part = i;
@@ -209,10 +198,7 @@
               }}>Part 1</a
             >
           </dt>
-          <dt>
-            Getting started with <code class="in">fdp-storage</code> &
-            <code class="in">fdp-play</code>
-          </dt>
+          <dt>Building a Todo App</dt>
           <dd>
             <div class="notice">
               An interactive guide to build a simple Todo app covering various
@@ -235,13 +221,7 @@
               }}>Part 2</a
             >
           </dt>
-          <dt>
-            Portable accounts & Interoperability <code class="in"
-              >fdp-storage</code
-            >
-            &
-            <code class="in">fdp-play</code>
-          </dt>
+          <dt>Sharing & Interoperability</dt>
           <dd>
             <div class="notice">
               Part 2 of the interactive guide covering additional aspects of FDP
@@ -263,7 +243,7 @@
             >
           </dt>
           <dt>
-            Moving beyond <code class="in">fdp-play</code>
+            Beyond <code class="in">fdp-play</code>
           </dt>
           <dd>
             <div class="notice">
@@ -305,8 +285,16 @@
     </dl>
   {:else if $part == 1}
     <section>
+      <h2>Building a Todo App</h2>
+      <h3>Prerequisites</h3>
+      <div class="notice">
+        1. Make sure <code>fdp-play</code> is installed and running:
+        <p><code>{"$ fdp-play start --fairos"}</code></p>
+        2. Open developer console to follow logs.
+      </div>
+    </section>
+    <section>
       <h2>1. Create a FdpStorage instance:</h2>
-      <code class="in">fdp</code>
       <Code source={initCode} />
       <RunButton
         step="1"
@@ -315,7 +303,6 @@
       />
       {#if $fdp}
         <h3>1.1 List accounts and balances:</h3>
-        <code class="in">fdp.ens.provider</code>
         <Code source={getAccountBalancesCode} />
         <RunButton
           step="1.1"
@@ -538,8 +525,32 @@
         </section>
       {/if}
     {/if}
-  {:else}
-    <h1>TODO</h1>
+  {:else if $part == 2}
+    <h2>Sharing & Interoperability</h2>
+    <div class="notice">
+      Part 2 of the interactive guide covering additional aspects of FDP
+      developement such as
+      <ul>
+        <li>top up FDP accounts</li>
+        <li>registering FDP accounts on-chain to make them portable</li>
+        <li>sharing pods / files / directories</li>
+        <li>showcase interoperability between two example apps</li>
+      </ul>
+    </div>
+    <h2>TODO</h2>
+  {:else if $part == 3}
+    <h2>Beyond <code class="in">fdp-play</code></h2>
+    <div class="notice">
+      Part 3 of the guide covering additional aspects of FDP developement such
+      as
+      <ul>
+        <li>moving from fdp-play to mainnet</li>
+        <li>environment variables and configuration</li>
+        <li>additonal resources and documentation</li>
+        <li>github repositories</li>
+      </ul>
+    </div>
+    <h2>TODO</h2>
   {/if}
 </main>
 <div id="footer" />

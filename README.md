@@ -1,4 +1,4 @@
-# Getting Started with Fair Data Protocol - `fdp-storage` + `fdp-play`
+# Getting Started with FDP - `fdp-storage` + `fdp-play`
 
 An interactive how-to guide to building dApps on Fair Data Protocol using `fdp-storage` and `fdp-play`.
 

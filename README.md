@@ -34,8 +34,9 @@ $ cd getting-started-with-fdp/
 $ pnpm i
 ```
 
-**Requirements:** `fdp-play` must be running already! 
 ### Run application
+**Requirements:** `fdp-play` must be running already! 
+
 ```shell
 $ pnpm dev
 ```

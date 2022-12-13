@@ -49,7 +49,7 @@ The application can be viewed at - http://localhost:5173/
 - [ ] Part 1 - Edit todo item 
 - [ ] Part 2 - Sharing & Interoperability
 - [ ] Getting started with FairOS
-- [ ] migrate app to [kit-docs](https://github.com/svelteness/kit-docs)  
+- [ ] migrate app to [kit-docs](https://github.com/svelteness/kit-docs) or [docusaurus](https://docusaurus.io/)
 
 ### Screenshot
 ![image](https://user-images.githubusercontent.com/520570/206979944-11a4e3b1-1f29-44d6-8fba-5bf2d5b93f47.png)

@@ -48,10 +48,15 @@ export const getAddressBalances = async(fdp: FdpStorage)=>{
 }
 export const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 export const scrollToBottom = () => {
-  const el = document.getElementById('footer');
-  // console.log({el})
-  // if (!el) return;
+  setTimeout(()=>{
+    const el = document.getElementById('footer');
       el.scrollIntoView({
       behavior: 'smooth'
   });
+  }, 500) 
+}
+
+export const scrollPageToTop = ()=>{
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }

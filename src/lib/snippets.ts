@@ -1,16 +1,10 @@
 import { TODOS_NS, TODO_ITEMS_DIR } from "./config"
 
-export const initCode =
-`import { FdpStorage } from '@fairdatasociety/fdp-storage'
 
-// we'll use an empty batchId for now
-let batchId: any = "0000000000000000000000000000000000000000000000000000000000000000";
-const fdp = new FdpStorage('http://localhost:1633',batchId);
-console.log({fdp});
-`
 export const getAccountBalancesCode =
 `import type { FdpStorage } from "@fairdatasociety/fdp-storage";
 import { utils } from "ethers";
+import { batchId } from "./store";
 
 ...
 
@@ -51,10 +45,11 @@ export const createTodoItemsDirectoryCode =
 });`
 
 export const createTodoItemCode = 
-`const uploadedTodoMetadata = await fdp.file.uploadData(
+`const todoId = new Date().getTime();
+const uploadedTodoMetadata = await fdp.file.uploadData(
   "${TODOS_NS}", 
-  "${TODO_ITEMS_DIR}/todo_" + new Date().getTime() + ".json", 
-  JSON.stringify({text:"Learn Fair Data Protocol!",done:false})
+  "${TODO_ITEMS_DIR}/todo_" + todoId + ".json", 
+  JSON.stringify({id: todoId, text:"Learn Fair Data Protocol!",done:false})
 );
 console.log({uploadedTodoMetadata});
 `
@@ -80,3 +75,10 @@ export const updateTodoCode =
     console.log("Todo deleted!")
   })
 `
+export const importWalletCode = 
+`let phrase = prompt("Enter mnemonic phrase:");
+if (phrase) {
+  // set account from mnemonic
+  fdp.account.setAccountFromMnemonic(phrase.trim());
+  console.log({ importedWallet:$wallet });
+}`

@@ -25,6 +25,9 @@
     "file-saver": "^2.0.5",
     "prismjs": "^1.29.0",
     "simpledotcss": "^2.1.1",
-    "svelte-prism": "^1.1.6"
+    "svelte-json-tree": "^1.0.0",
+    "svelte-prism": "^1.1.6",
+    "svelte-spa-router": "^3.3.0",
+    "url-exist": "^3.0.1"
   }
 }

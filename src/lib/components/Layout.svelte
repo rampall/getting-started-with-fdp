@@ -19,3 +19,5 @@
 <main>
     <slot></slot>
 </main>
+<footer id="footer">
+</footer>

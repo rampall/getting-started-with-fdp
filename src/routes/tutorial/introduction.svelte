@@ -1,10 +1,6 @@
 
 <script>
   import { onMount } from "svelte";
-  import { scrollToTop } from "../../lib/utils";
-  onMount(()=>{
-    scrollToTop();
-  })
 </script>
 <h1>Introduction</h1>
 <section>

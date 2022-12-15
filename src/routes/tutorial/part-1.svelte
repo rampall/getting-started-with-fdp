@@ -39,6 +39,8 @@
   import { utils } from "ethers";
   import { saveAs } from "file-saver";
   import type { ContentItem } from "@fairdatasociety/fdp-storage/dist/content-items/content-item";
+  import urlExist from "url-exist";
+  import { scrollToBottom } from "../../lib/utils";
 
   const init = () => {
     $fdp = new FdpStorage(config.beeUrl, $batchId);
@@ -102,6 +104,7 @@
     $steps[5] = true;
   };
   const createTodoItem = async () => {
+    $todoText = prompt("Enter a Todo");
     const id = new Date().getTime();
     const uploadedTodoMetadata = await $fdp.file.uploadData(
       TODOS_NS,
@@ -168,8 +171,6 @@
       })
     ).map((data) => data.json() as Todo);
   };
-  import urlExist from "url-exist";
-  import { scrollToBottom } from "../../lib/utils";
 
   const startTutorial = () => {
     $started = true;
@@ -178,15 +179,13 @@
   $: initCode = `import { FdpStorage } from '@fairdatasociety/fdp-storage'
 let batchId: any = "${
     $batchId ||
-    "0000000000000000000000000000000000000000000000000000000000000000"
+    ""
   }";
 const fdp = new FdpStorage('http://localhost:1633',batchId);
 console.log({fdp});
 `;
-  import { scrollToTop } from "../../lib/utils";
   onMount(async () => {
-    scrollToTop();
-    $batchId = config.batchId;
+    $batchId = "";
     $isBeeRunning = await urlExist("http://localhost:1633/");
     $isLocalSetup = window.location.href
       .split("//")[1]
@@ -525,6 +524,7 @@ console.log({fdp});
       <Code source={updateTodoCode} />
       {#if $steps[7] && $todoItems.length}
         <table class="notice">
+          <h4>Todos</h4>
           <tr
             ><th>#</th><th>id</th><th>todo</th><th>done</th><th>actions</th></tr
           >

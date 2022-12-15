@@ -1,6 +1,6 @@
 # Getting Started with Fair Data Protocol (FDP)
 
-An interactive how-to guide to building dApps on Fair Data Protocol using `fdp-storage` and `fdp-play`.
+An interactive how-to guide for beginners on getting started with building dApps on Fair Data Protocol using `fdp-storage` and `fdp-play`.
 
 ## Local Development Setup
 
@@ -60,3 +60,7 @@ You can also skip the introduction and start the tutorial directly here - http:/
 ---
 
 ![image](https://user-images.githubusercontent.com/520570/207879702-e3a5335b-beb8-4c42-b118-a7853fde28b3.png)
+
+---
+
+![image](https://user-images.githubusercontent.com/520570/207890048-6502ab71-3e30-4e85-bbe7-b89444a17a0f.png)

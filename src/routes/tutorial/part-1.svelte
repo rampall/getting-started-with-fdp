@@ -191,6 +191,7 @@ console.log({fdp});
       .split("//")[1]
       .startsWith("localhost:");
   });
+  
 </script>
 
 <h1>Part 1 - Building a Todo dapp</h1>
@@ -266,11 +267,10 @@ console.log({fdp});
     <strong>A Quick Checklist:</strong>
     <ul>
       <li>
-        {#if $isLocalSetup}✅{:else}❌{/if} This page is being served locally from
-        <b>{window.location.href.split('/')[2]}</b>
+        {#if $isLocalSetup}✅{:else}❌{/if} This page is being served locally - <b>{window.location.href.split('/')[2]}</b>
       </li>
       <li>
-        ✅ Local bee node (managed by FDP Play) is running at <a
+        {#if $isBeeRunning}✅{:else}❌{/if} Local bee node is running at <a
           href="http://localhost:1633/"
           target="_blank"
           rel="noreferrer">http://localhost:1633</a

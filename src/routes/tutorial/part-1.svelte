@@ -189,7 +189,7 @@ console.log({fdp});
     $isBeeRunning = await urlExist("http://localhost:1633/");
     $isLocalSetup = window.location.href
       .split("//")[1]
-      .startsWith("localhost:5173");
+      .startsWith("localhost:");
   });
 </script>
 
@@ -267,7 +267,7 @@ console.log({fdp});
     <ul>
       <li>
         {#if $isLocalSetup}✅{:else}❌{/if} This page is being served locally from
-        <b>http://localhost:5173</b>
+        <b>{window.location.href.split('/')[2]}</b>
       </li>
       <li>
         ✅ Local bee node (managed by FDP Play) is running at <a

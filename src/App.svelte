@@ -19,6 +19,7 @@
   }
   onMount(() => {
     url = window.location.href;
+    console.log({url})
   });
   
 </script>
